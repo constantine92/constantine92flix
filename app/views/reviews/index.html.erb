@@ -1,0 +1,10 @@
+<h1>Reviews for <%= link_to @movie.title, @movie %></h1>
+
+<ul>
+    <% @reviews.each do |r| %>
+        <li>(<%= r.stars %> stars by <%= r.name %>: "<%= r.comment %>". Created <%= time_ago_in_words(r.created_at) %> ago.) </br>
+             <%= link_to "Edit", edit_movie_review_path(r.movie_id, r.id) %> | 
+             <%= link_to 'Delete', movie_review_path(r.movie_id, r.id), class: 'button',method: :delete, data: { confirm: 'Are you sure?' } %>
+        </li>
+    <% end%>
+</ul>
