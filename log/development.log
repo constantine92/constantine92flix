@@ -7575,3 +7575,22 @@ Processing by MoviesController#show as HTML
 Completed 200 OK in 85ms (Views: 81.9ms | ActiveRecord: 1.1ms)
 
 
+Started GET "/movies/5" for 95.97.45.102 at 2017-03-01 20:03:35 +0000
+Cannot render console from 95.97.45.102! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering movies/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 5]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT AVG("reviews"."stars") FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT AVG("reviews"."stars") FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 5]]
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ? ORDER BY created_at desc LIMIT ?[0m  [["movie_id", 5], ["LIMIT", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 5]]
+  Rendered movies/show.html.erb within layouts/application (14.5ms)
+  Rendered layouts/_header.html.erb (4.6ms)
+  Rendered layouts/_flashes.html.erb (3.0ms)
+  Rendered layouts/_sidebar.html.erb (4.6ms)
+  Rendered layouts/_footer.html.erb (2.1ms)
+Completed 200 OK in 83ms (Views: 75.0ms | ActiveRecord: 1.2ms)
+
+
