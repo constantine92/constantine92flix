@@ -8598,3 +8598,52 @@ Processing by MoviesController#show as HTML
 Completed 200 OK in 46ms (Views: 43.8ms | ActiveRecord: 0.8ms)
 
 
+Started GET "/" for 95.97.45.102 at 2017-03-02 19:41:18 +0000
+Cannot render console from 95.97.45.102! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE (released_on <= '2017-03-02 19:41:19.135215') ORDER BY released_on desc[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 5]]
+  Rendered movies/index.html.erb within layouts/application (116.5ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_flashes.html.erb (0.4ms)
+  Rendered layouts/_sidebar.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 450ms (Views: 423.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/movies/1" for 95.97.45.102 at 2017-03-02 19:41:26 +0000
+Cannot render console from 95.97.45.102! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.6ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering movies/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT AVG("reviews"."stars") FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT AVG("reviews"."stars") FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 1]]
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = ? ORDER BY created_at desc LIMIT ?[0m  [["movie_id", 1], ["LIMIT", 2]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."movie_id" = ?[0m  [["movie_id", 1]]
+  Rendered movies/show.html.erb within layouts/application (23.2ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_flashes.html.erb (0.7ms)
+  Rendered layouts/_sidebar.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 144ms (Views: 135.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/movies/1/edit" for 95.97.45.102 at 2017-03-02 19:41:29 +0000
+Cannot render console from 95.97.45.102! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering movies/edit.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (0.6ms)
+  Rendered movies/_form.html.erb (32.8ms)
+  Rendered movies/edit.html.erb within layouts/application (34.3ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_flashes.html.erb (0.6ms)
+  Rendered layouts/_sidebar.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 125ms (Views: 122.2ms | ActiveRecord: 0.3ms)
+
+
